@@ -14,7 +14,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="hu">
-      <head></head>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="theme-color" content="#8B7355" />
+      </head>
       <body>
         <NavBar />
         <Suspense fallback={null}>
