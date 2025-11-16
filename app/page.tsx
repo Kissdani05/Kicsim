@@ -1,12 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 export default function Page() {
   const router = useRouter();
-  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   useEffect(() => {
     // Reveal sections on scroll
     const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' } as const;
@@ -27,14 +26,9 @@ export default function Page() {
     };
     q.forEach((el) => el.addEventListener('click', () => click(el)));
 
-    // Close lightbox with Escape
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setLightbox(null); };
-    document.addEventListener('keydown', onKey);
-
     return () => {
       q.forEach((el) => el.removeEventListener('click', () => click(el)));
       observer.disconnect();
-      document.removeEventListener('keydown', onKey);
     };
   }, []);
 
@@ -51,20 +45,13 @@ export default function Page() {
       <section className="hero visible" id="home">
         <div className="hero-bg" />
         <div className="hero-overlay" />
+        <a className="btn hero-cta-floating" href="#foglalas" onClick={openBooking}>Foglalás</a>
         <div className="hero-content">
           <h1>KICSIM</h1>
           <p className="hero-subtitle">Romantikus menedék a Mátra szívében</p>
           <p className="hero-description">
             Ahol az erdő csendje találkozik a modern kényelemmel. Egy hely, ahol csak ti ketten és a természet vagytok.
           </p>
-          <div className="hero-buttons">
-            <a className="btn" href="#foglalas" onClick={openBooking}>Foglalás most</a>
-            <a className="btn btn-secondary" href="#rolunk">Fedezd fel</a>
-          </div>
-        </div>
-        <div className="scroll-indicator">
-          <span style={{ fontSize: '.9rem', letterSpacing: '1px' }}>GÖRGESS</span>
-          <i className="fas fa-chevron-down" />
         </div>
       </section>
 
@@ -106,44 +93,13 @@ export default function Page() {
             <p>A közeli városok könnyen megközelíthetők, mégis elég távol vannak ahhoz, hogy a nyugalom és a természet varázsa körülvehessen benneteket. Az erdei ösvények közvetlenül a házból indulnak, így a reggeli séták és túrák részévé válhatnak a mindennapi rutinnak.</p>
             <p>A pontos címet a foglalás megerősítése után küldjük el, hogy biztosítsuk vendégeink nyugalmát és privát szféráját.</p>
           </div>
-          <div className="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d169253.4263566619!2d19.749999999999996!3d47.86666666666667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47401e0d1e8c7f7f%3A0x400c4290c1e1360!2zTcOhdHJh!5e0!3m2!1shu!2shu!4v1234567890123!5m2!1shu!2shu" loading="lazy" allowFullScreen />
+          <div className="location-image">
+            <Image src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200" alt="Mátrai erdő" width={1200} height={450} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
         </div>
       </section>
 
-      {/* GALÉRIA */}
-      <section id="galeria" className="gallery-section">
-        <div className="section-header">
-          <div className="section-badge">Galéria</div>
-          <h2 className="section-title">Tekintsd meg az erdei otthont</h2>
-          <p className="section-subtitle">Minden sarok, minden részlet a ti kényelmeteket szolgálja</p>
-        </div>
-        <div className="gallery-container">
-          <div className="gallery-grid">
-            <div className="gallery-item large" onClick={() => setLightbox({ src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600', alt: 'Modern nappali' })}>
-              <Image src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200" alt="Modern nappali" fill sizes="(max-width: 1600px) 100vw, 1200px" style={{ objectFit: 'cover' }} />
-              <div className="gallery-overlay"><h3>Modern Nappali</h3><p>Tágas, napfényes és stílusos</p></div>
-            </div>
-            <div className="gallery-item" onClick={() => setLightbox({ src: 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1600', alt: 'Jakuzzi' })}>
-              <Image src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800" alt="Jakuzzi" fill sizes="(max-width: 1600px) 50vw, 800px" style={{ objectFit: 'cover' }} />
-              <div className="gallery-overlay"><h3>Jakuzzi</h3><p>Relaxálj az erdő csendében</p></div>
-            </div>
-            <div className="gallery-item" onClick={() => setLightbox({ src: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600', alt: 'Hálószoba' })}>
-              <Image src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800" alt="Hálószoba" fill sizes="(max-width: 1600px) 50vw, 800px" style={{ objectFit: 'cover' }} />
-              <div className="gallery-overlay"><h3>Nyugodt Pihenés</h3><p>Prémium ágy és ágyneműk</p></div>
-            </div>
-            <div className="gallery-item" onClick={() => setLightbox({ src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600', alt: 'Konyha' })}>
-              <Image src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="Konyha" fill sizes="(max-width: 1600px) 50vw, 800px" style={{ objectFit: 'cover' }} />
-              <div className="gallery-overlay"><h3>Felszerelt Konyha</h3><p>Minden eszköz a főzéshez</p></div>
-            </div>
-            <div className="gallery-item" onClick={() => setLightbox({ src: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1600', alt: 'Terasz' })}>
-              <Image src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800" alt="Terasz" fill sizes="(max-width: 1600px) 50vw, 800px" style={{ objectFit: 'cover' }} />
-              <div className="gallery-overlay"><h3>Privát Terasz</h3><p>Erdőre néző kilátás</p></div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Galéria külön oldalon (/galeria) */}
 
       {/* FELSZERELTSÉG */}
       <section id="felszereltseg">
@@ -153,29 +109,35 @@ export default function Page() {
           <p className="section-subtitle">Minden, amire a gondtalan kikapcsolódáshoz szükségetek lehet</p>
         </div>
         <div className="amenities-grid">
-          <div className="amenity-card"><i className="fas fa-hot-tub"></i><h3>Jakuzzi</h3><p>Relaxáljatok a meleg vízben az erdő csendjében</p></div>
-          <div className="amenity-card"><i className="fas fa-fire"></i><h3>Szauna</h3><p>Teljes feltöltődés a finn szaunában</p></div>
-          <div className="amenity-card"><i className="fas fa-utensils"></i><h3>Felszerelt konyha</h3><p>Minden eszköz a főzéshez és sütéshez</p></div>
-          <div className="amenity-card"><i className="fas fa-wifi-slash"></i><h3>Digitális detox</h3><p>Nincs wifi - csak ti ketten és a természet</p></div>
-          <div className="amenity-card"><i className="fas fa-snowflake"></i><h3>Klíma & Fűtés</h3><p>Tökéletes hőmérséklet egész évben</p></div>
-          <div className="amenity-card"><i className="fas fa-campground"></i><h3>Bográcsozás</h3><p>Kültéri tűzrakó hely bográccsal</p></div>
-          <div className="amenity-card"><i className="fas fa-coffee"></i><h3>Kávégép</h3><p>Indítsátok a napot friss kávéval</p></div>
-          <div className="amenity-card"><i className="fas fa-bed"></i><h3>Kényelmes ágy</h3><p>Prémium matrac és ágyneműk</p></div>
+          {[
+            { icon: 'fa-hot-tub', title: 'Jakuzzi', desc: 'Relaxáljatok a meleg vízben az erdő csendjében', img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200' },
+            { icon: 'fa-fire', title: 'Szauna', desc: 'Teljes feltöltődés a finn szaunában', img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200' },
+            { icon: 'fa-utensils', title: 'Felszerelt konyha', desc: 'Minden eszköz a főzéshez és sütéshez', img: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=1200' },
+            { icon: 'fa-wifi-slash', title: 'Digitális detox', desc: 'Nincs wifi - csak ti ketten és a természet', img: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200' },
+            { icon: 'fa-snowflake', title: 'Klíma & Fűtés', desc: 'Tökéletes hőmérséklet egész évben', img: 'https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?w=1200' },
+            { icon: 'fa-campground', title: 'Bográcsozás', desc: 'Kültéri tűzrakó hely bográccsal', img: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200' },
+            { icon: 'fa-coffee', title: 'Kávégép', desc: 'Indítsátok a napot friss kávéval', img: 'https://images.unsplash.com/photo-1497515114629-f71d768fd07c?w=1200' },
+            { icon: 'fa-bed', title: 'Kényelmes ágy', desc: 'Prémium matrac és ágyneműk', img: 'https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?w=1200' },
+          ].map((a, i) => (
+            <div key={i} className="amenity-card flip">
+              <div className="amenity-card-inner">
+                <div className="amenity-front">
+                  <i className={`fas ${a.icon}`}></i>
+                  <h3>{a.title}</h3>
+                  <p>{a.desc}</p>
+                </div>
+                <div className="amenity-back">
+                  <Image src={a.img} alt={a.title} fill style={{ objectFit: 'cover' }} />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* A Látnivalók, GYIK és Kapcsolat külön oldalakon érhetők el */}
 
-      {/* Lightbox */}
-      {lightbox && (
-        <div className="lightbox-backdrop" onClick={(e) => { if (e.target === e.currentTarget) setLightbox(null); }}>
-          <button className="lightbox-close" aria-label="Bezárás" onClick={() => setLightbox(null)}><i className="fas fa-times" /></button>
-          {/* Use next/image for optimization; use fill within a container */}
-          <div className="lightbox-img-wrap">
-            <Image src={lightbox.src} alt={lightbox.alt} fill sizes="100vw" style={{ objectFit: 'contain' }} />
-          </div>
-        </div>
-      )}
+      {/* Lightbox a galéria oldalon */}
 
       {/* Footer a közös layoutban */}
     </main>

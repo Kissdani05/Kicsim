@@ -18,6 +18,8 @@ export default function NavBar() {
       <nav>
         <Link href="/" className="logo" onClick={() => document.querySelector('.nav-links')?.classList.remove('active')}>KICSIM</Link>
         <ul className="nav-links" onClick={() => document.querySelector('.nav-links')?.classList.remove('active')}>
+          <li><Link href="/">Főoldal</Link></li>
+          <li><Link href="/galeria">Galéria</Link></li>
           <li><Link href="/latnivalok">Látnivalók</Link></li>
           <li><Link href="/gyik">GYIK</Link></li>
           <li><Link href="/kapcsolat">Kapcsolat</Link></li>
