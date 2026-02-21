@@ -1,13 +1,28 @@
+'use client';
+import { useEffect } from 'react';
+
 export default function FoglalasPage() {
+  useEffect(() => {
+    // Keep header in scrolled state on booking page
+    const header = document.querySelector('header');
+    header?.classList.add('scrolled');
+    
+    return () => {
+      // Clean up when leaving the page
+      header?.classList.remove('scrolled');
+    };
+  }, []);
+
   return (
     <main>
-      <section className="visible" style={{ minHeight: '80vh', padding: '8rem 2rem 4rem', background: '#F5F1E8' }}>
+      <section className="visible booking-page-section" style={{ minHeight: '80vh', padding: '8rem 2rem 4rem', background: '#F5F1E8' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
-            <h1 style={{ fontSize: 'clamp(1.6rem, 4.2vw, 3rem)', color: '#A1765F', fontWeight: '300', letterSpacing: '3px', marginBottom: '2rem' }}>FOGLALÁS</h1>
+          <div className="section-header">
+            <div className="section-badge">Foglalás</div>
+            <h1 className="section-title" style={{ marginBottom: '2rem' }}>Foglalás & Árak</h1>
           </div>
 
-          <div style={{ maxWidth: '900px', margin: '0 auto 4rem', fontSize: '1.05rem', lineHeight: '1.8', color: '#2C2416' }}>
+          <div className="booking-intro" style={{ maxWidth: '900px', margin: '0 auto 4rem', fontSize: '1.05rem', lineHeight: '1.8', color: '#2C2416' }}>
             <p style={{ marginBottom: '1.5rem', color: '#2C2416' }}>
               A Kicsim vendégház két fő részére került kialakításra. Korlátlanul használhatjátok a privát <strong>jacuzzit és az infraszaunát</strong>. Csak a Tiétek az egész ház az itt tartózkodásotok alatt. A szállásdíj tartalmazza az idegenforgalmi adót és a végtakarítást.
             </p>
@@ -48,7 +63,7 @@ export default function FoglalasPage() {
             ))}
           </div>
 
-          <div style={{ maxWidth: '900px', margin: '3rem auto', textAlign: 'center', fontSize: '1.05rem', fontWeight: '600', color: '#2C2416' }}>
+          <div className="booking-footer" style={{ maxWidth: '900px', margin: '3rem auto', textAlign: 'center', fontSize: '1.05rem', fontWeight: '600', color: '#2C2416' }}>
             <p style={{ marginBottom: '2rem', color: '#2C2416' }}>
               Érkezés <strong>14:00</strong> órától, távozás <strong>10:00</strong> óráig.
             </p>
