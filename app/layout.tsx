@@ -7,8 +7,8 @@ import Footer from '@/components/Footer';
 import BookingModal from '@/components/BookingModal';
 
 export const metadata: Metadata = {
-  title: 'Kicsim Vendégház - Romantikus Pihenés a Mátrában',
-  description: 'Romantikus menedék a Mátra szívében – Kicsim Vendégház',
+  title: 'Romantikus erdei vendégház Mátrában | Jakuzzi, panoráma, wellness',
+  description: 'Fedezzétek fel a Mátra varázsát egymással kettesben! Romantikus vendégház privát jakuzzival, panorámával és természetközeli nyugalommal – foglalj most!',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="hu">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <meta name="theme-color" content="#8B7355" />
+        <meta name="theme-color" content="#A1765F" />
       </head>
       <body>
         <NavBar />

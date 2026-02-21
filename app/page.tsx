@@ -2,10 +2,9 @@
 
 import { useEffect } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import miertakicsimImage from '@/images/miertakicsim.jpeg';
 
 export default function Page() {
-  const router = useRouter();
   useEffect(() => {
     // Reveal sections on scroll
     const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' } as const;
@@ -32,20 +31,13 @@ export default function Page() {
     };
   }, []);
 
-  const openBooking = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const url = new URL(window.location.href);
-    url.searchParams.set('foglalas', '1');
-    router.replace(url.toString(), { scroll: false });
-  };
-
   return (
     <main>
       {/* HERO */}
       <section className="hero visible" id="home">
         <div className="hero-bg" />
         <div className="hero-overlay" />
-        <a className="btn hero-cta-floating" href="#foglalas" onClick={openBooking}>Foglalás</a>
+        <a className="btn hero-cta-floating" href="/foglalas">Foglalás</a>
         <div className="hero-content">
           <h1>KICSIM</h1>
           <p className="hero-subtitle">Romantikus menedék a Mátra szívében</p>
@@ -55,22 +47,20 @@ export default function Page() {
         </div>
       </section>
 
-      {/* RÓLUNK - Miért a Kicsim? */}
+      {/* RÓLUNK - Miért a Kicsim? & Hol található? */}
       <section id="rolunk" className="about-bg">
         <div className="section-header">
           <div className="section-badge">Miért a Kicsim?</div>
-          <h2 className="section-title">Modern Nyugalom az Erdő Ölelésében</h2>
-          <p className="section-subtitle">Ahol a kényelem találkozik a természettel, és minden részlet a ti pihenésetekért lett megtervezve</p>
+          <h2 className="section-title">Vendégházunk a Mátra Szívében</h2>
+          <p className="section-subtitle">A festői szépségű Mátrakeresztesen, az erdő szélén – ahol a nyugalom találkozik a luxussal</p>
         </div>
         <div className="about-content">
           <div className="about-image">
-            <Image src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?w=1200" alt="Kicsim Vendégház" fill priority sizes="(max-width: 1200px) 100vw, 1200px" style={{ objectFit: 'cover' }} />
+            <Image src={miertakicsimImage} alt="Kicsim Vendégház" fill priority sizes="(max-width: 1200px) 100vw, 1200px" style={{ objectFit: 'cover' }} />
           </div>
           <div className="about-text">
-            <h3>Egy hely, ahol megállhat az idő</h3>
-            <p>A Kicsim vendégház nem csak egy szállás – egy élmény. Az erdő szélén megbújva, ahol a madarak éneke ébreszt, és a természet nyugalma körülölel.</p>
-            <p>Prémium felszereltségünk és a természet közelsége tökéletes harmóniát teremt. A jakuzziból az erdőre nézhettek, a szaunában feltöltődhettek, majd a teraszon élvezhettek egy pohár bort a csillagos ég alatt.</p>
-            <p>Legyen szó romantikus hétvégéről, évfordulóról vagy egy jól megérdemelt pihenésről – a Kicsim garantálja, hogy felejthetetlen élményekkel térjetek haza.</p>
+            <h3>Vendégházunk a festői szépségű Mátrakeresztesen...</h3>
+            <p>Vendégházunk a festői szépségű Mátrakeresztesen, az erdő szélén bújik meg, ahol az erdei nyugalom az első perctől elvarázsol. Fedezzétek fel az erdő csendjét, és engedjétek, hogy a természet elcsendesítse a rohanó világ zaját és néhány napig csak egymásra figyeljetek – a Kicsim egy felnőttbarát romantikus erdei vendégház, ahol mindez könnyedén megvalósulhat. A jakuzzi és a szauna gondoskodik a teljes feltöltődésről, a teljesen felszerelt konyha és igény esetén a reggeli bekészítés pedig otthonossá teszi a tartózkodást. A környék fantasztikus lehetőséget kínál túrázásra és a Mátra felfedezésére, így a természet és a romantika tökéletes harmóniáját élhetitek át.</p>
             <div className="about-stats">
               <div className="stat-item"><div className="stat-number">100%</div><div className="stat-label">Privát terület</div></div>
               <div className="stat-item"><div className="stat-number">2 fő</div><div className="stat-label">Maximum</div></div>
@@ -80,55 +70,195 @@ export default function Page() {
         </div>
       </section>
 
-      {/* HELYSZÍN */}
-      <section id="hol">
+      {/* KIEMELT SZOLGÁLTATÁSOK */}
+      <section id="kiemelt" className="highlights-section">
         <div className="section-header">
-          <div className="section-badge">Helyszín</div>
-          <h2 className="section-title">Hol található?</h2>
-          <p className="section-subtitle">A Mátra szívében, az erdő szélén – nyugodt, privát környezetben</p>
+          <div className="section-badge">Kiemelt Szolgáltatások</div>
+          <h2 className="section-title">Az Élmény Magja</h2>
+          <p className="section-subtitle">Fedezd fel azokat az exclusív szolgáltatásokat, amelyek az ön pihenését tökéletessé teszik</p>
         </div>
-        <div className="location-content">
-          <div className="location-text">
-            <p>Vendégházunk a Mátra szívében található, az erdő szélén, tökéletes helyen a természet szerelmeseinek. A csendes, privát környezet ideális a kikapcsolódáshoz és feltöltődéshez.</p>
-            <p>A közeli városok könnyen megközelíthetők, mégis elég távol vannak ahhoz, hogy a nyugalom és a természet varázsa körülvehessen benneteket. Az erdei ösvények közvetlenül a házból indulnak, így a reggeli séták és túrák részévé válhatnak a mindennapi rutinnak.</p>
-            <p>A pontos címet a foglalás megerősítése után küldjük el, hogy biztosítsuk vendégeink nyugalmát és privát szféráját.</p>
+
+        <div className="highlight-item highlight-item-left">
+          <div className="highlight-text">
+            <div className="highlight-accent"></div>
+            <h3><i className="fas fa-hot-tub"></i> Privát Jakuzzi Luxus</h3>
+            <p>Merüljetek el kettesben a privát jakuzziban, élvezzétek a privát wellnesst a Mátra fái alatt. A meleg víz és a csend garantálja a teljes ellazulást és romantikus hangulatot.</p>
           </div>
-          <div className="location-image">
-            <Image src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200" alt="Mátrai erdő" width={1200} height={450} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <div className="highlight-image">
+            <Image src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80" alt="Privát jakuzzi" width={600} height={400} style={{ objectFit: 'cover', width: '100%', height: 'auto' }} />
+          </div>
+        </div>
+
+        <div className="highlight-item highlight-item-right">
+          <div className="highlight-image">
+            <Image src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80" alt="Infraszauna" width={600} height={400} style={{ objectFit: 'cover', width: '100%', height: 'auto' }} />
+          </div>
+          <div className="highlight-text">
+            <div className="highlight-accent"></div>
+            <h3><i className="fas fa-fire"></i> Infraszauna – Wellness Kiválóság</h3>
+            <p>Beltéri infraszaunánk egész évben elérhető, hogy a hűvösebb napokon is meleg és nyugodt környezetben lazíthassatok. Tökéletes módja a test és a lélek feltöltődésének, miközben a párotokkal kettesben élvezitek a csendet.</p>
+          </div>
+        </div>
+
+        <div className="highlight-item highlight-item-left">
+          <div className="highlight-text">
+            <div className="highlight-accent"></div>
+            <h3><i className="fas fa-bed"></i> Romantikus Erdei Idill</h3>
+            <p>Panorámás franciaágyaink és felnőttbarát környezetünk garantálja a zavartalan romantikát. A Kicsim a tökéletes hely a párok romantikus, zavartalan elvonulásához.</p>
+          </div>
+          <div className="highlight-image">
+            <Image src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?w=800&q=80" alt="Romantikus szoba" width={600} height={400} style={{ objectFit: 'cover', width: '100%', height: 'auto' }} />
+          </div>
+        </div>
+
+        <div className="highlight-item highlight-item-right">
+          <div className="highlight-image">
+            <Image src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=800&q=80" alt="Felszerelt konyha" width={600} height={400} style={{ objectFit: 'cover', width: '100%', height: 'auto' }} />
+          </div>
+          <div className="highlight-text">
+            <div className="highlight-accent"></div>
+            <h3><i className="fas fa-utensils"></i> Gourmet Konyha</h3>
+            <p>Főzzetek kényelmesen és élvezzétek az együtt töltött időt a teljesen felszerelt konyhában, amely kávégéppel és mosogatógéppel is rendelkezik.</p>
+          </div>
+        </div>
+
+        <div className="highlight-item highlight-item-left">
+          <div className="highlight-text">
+            <div className="highlight-accent"></div>
+            <h3><i className="fas fa-hiking"></i> Erdőkalandok</h3>
+            <p>A Kicsim vendégháza közvetlenül a Mátra festői erdei és hegyi útvonalai mellett található, így könnyedén fedezhetitek fel a természet szépségeit. Túrázzatok együtt, élvezzétek a kilátást és a friss levegőt, miközben új élményeket szereztek kettesben.</p>
+          </div>
+          <div className="highlight-image">
+            <Image src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Erdőközeli túrák" width={600} height={400} style={{ objectFit: 'cover', width: '100%', height: 'auto' }} />
           </div>
         </div>
       </section>
 
-      {/* Galéria külön oldalon (/galeria) */}
-
       {/* FELSZERELTSÉG */}
       <section id="felszereltseg">
         <div className="section-header">
-          <div className="section-badge">Szolgáltatások</div>
-          <h2 className="section-title">Felszereltség & Szolgáltatások</h2>
+          <h2 className="section-title">Felszereltség</h2>
           <p className="section-subtitle">Minden, amire a gondtalan kikapcsolódáshoz szükségetek lehet</p>
         </div>
         <div className="amenities-grid">
           {[
-            { icon: 'fa-hot-tub', title: 'Jakuzzi', desc: 'Relaxáljatok a meleg vízben az erdő csendjében', img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200' },
-            { icon: 'fa-fire', title: 'Szauna', desc: 'Teljes feltöltődés a finn szaunában', img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200' },
-            { icon: 'fa-utensils', title: 'Felszerelt konyha', desc: 'Minden eszköz a főzéshez és sütéshez', img: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=1200' },
-            { icon: 'fa-wifi-slash', title: 'Digitális detox', desc: 'Nincs wifi - csak ti ketten és a természet', img: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200' },
-            { icon: 'fa-snowflake', title: 'Klíma & Fűtés', desc: 'Tökéletes hőmérséklet egész évben', img: 'https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?w=1200' },
-            { icon: 'fa-campground', title: 'Bográcsozás', desc: 'Kültéri tűzrakó hely bográccsal', img: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200' },
-            { icon: 'fa-coffee', title: 'Kávégép', desc: 'Indítsátok a napot friss kávéval', img: 'https://images.unsplash.com/photo-1497515114629-f71d768fd07c?w=1200' },
-            { icon: 'fa-bed', title: 'Kényelmes ágy', desc: 'Prémium matrac és ágyneműk', img: 'https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?w=1200' },
+            { title: 'Csak ketten', desc: 'Felnőttbarát romantikus elvonulás kettesben, gyermekmentes övezet' },
+            { title: 'Jakuzzi', desc: 'Privát wellness élmény bekészített köntössel' },
+            { title: 'Beltéri infraszauna', desc: 'Egész évben használható, nyugodt szaunaélmény' },
+            { title: 'Panorámás franciaágy', desc: 'Ébredés erdőre és hegyre nyíló kilátással' },
+            { title: 'Felszerelt konyha', desc: 'Kávégéppel és mosogatógéppel – kávékapszula és tea bekészítéssel' },
+            { title: 'Modern fürdőszoba', desc: 'Bidével és zuhanykabinnal' },
+            { title: 'Kényelmes nappali', desc: 'Kétszemélyes ülőgarnitúrával – bekuckózás kettesben' },
+            { title: 'Kisállatmentes', desc: 'Allergiabarát környezet – nyugodt pihenés minden vendégnek' },
+            { title: 'Klíma és padlófűtés', desc: 'Kellemes hőmérséklet minden évszakban' },
+            { title: 'Szórakozás együtt', desc: 'TV, Netflix, Wi-Fi, társasjátékok és könyvek' },
+            { title: 'Privát parkoló', desc: 'Biztonságos parkolás közvetlenül a háznál' },
+            { title: 'Önálló érkezés', desc: 'Rugalmas kulcsszéf – érkezz a saját idődben' },
+            { title: 'Csendes terasz', desc: 'Lenyűgöző kilátás a közeli hegyre és az erdőre' },
+            { title: 'Túrázás', desc: 'Kirándulás, közeli látnivalók – fedezd fel a Mátrát' },
           ].map((a, i) => (
-            <div key={i} className="amenity-card flip">
-              <div className="amenity-card-inner">
-                <div className="amenity-front">
-                  <i className={`fas ${a.icon}`}></i>
-                  <h3>{a.title}</h3>
-                  <p>{a.desc}</p>
-                </div>
-                <div className="amenity-back">
-                  <Image src={a.img} alt={a.title} fill style={{ objectFit: 'cover' }} />
-                </div>
+            <div key={i} className="amenity-card">
+              <div className="amenity-front">
+                <h3>{a.title}</h3>
+                <p>{a.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* GALÉRIA */}
+      <section id="galeria" className="gallery-section">
+        <div className="section-header">
+          <div className="section-badge">Galerie</div>
+          <h2 className="section-title">Képalória</h2>
+          <p className="section-subtitle">Fedezd fel a Kicsim minden szögletét – a jakuzzitól az erdőig</p>
+        </div>
+        <div className="gallery-container">
+          <div className="gallery-grid">
+            <div className="gallery-item h-3">
+              <Image src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80" alt="Jakuzzi" fill style={{ objectFit: 'cover' }} />
+              <div className="gallery-overlay">
+                <h3>Privát Jakuzzi</h3>
+                <p>Éjszakás relaxáció</p>
+              </div>
+            </div>
+            <div className="gallery-item h-2">
+              <Image src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Szauna" fill style={{ objectFit: 'cover' }} />
+              <div className="gallery-overlay">
+                <h3>Infraszauna</h3>
+                <p>Wellness élmény</p>
+              </div>
+            </div>
+            <div className="gallery-item h-4">
+              <Image src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?w=600&q=80" alt="Hálószoba" fill style={{ objectFit: 'cover' }} />
+              <div className="gallery-overlay">
+                <h3>Romantikus Szoba</h3>
+                <p>Panoráma az erdőre</p>
+              </div>
+            </div>
+            <div className="gallery-item h-1">
+              <Image src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=600&q=80" alt="Konyha" fill style={{ objectFit: 'cover' }} />
+              <div className="gallery-overlay">
+                <h3>Modern Konyha</h3>
+                <p>Gourmet felszerelés</p>
+              </div>
+            </div>
+            <div className="gallery-item h-5">
+              <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Terasz" fill style={{ objectFit: 'cover' }} />
+              <div className="gallery-overlay">
+                <h3>Terasz</h3>
+                <p>Természet közelségben</p>
+              </div>
+            </div>
+            <div className="gallery-item h-2">
+              <Image src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Erdő" fill style={{ objectFit: 'cover' }} />
+              <div className="gallery-overlay">
+                <h3>Erdőkaland</h3>
+                <p>Túrázás a Mátrában</p>
+              </div>
+            </div>
+            <div className="gallery-item h-3">
+              <Image src="https://images.unsplash.com/photo-1570129477492-45ac003caf56?w=600&q=80" alt="Nappali" fill style={{ objectFit: 'cover' }} />
+              <div className="gallery-overlay">
+                <h3>Nappali</h3>
+                <p>Kényelmes közös tér</p>
+              </div>
+            </div>
+            <div className="gallery-item h-4">
+              <Image src="https://images.unsplash.com/photo-1517457373614-b7152f800a81?w=600&q=80" alt="Fürdőszoba" fill style={{ objectFit: 'cover' }} />
+              <div className="gallery-overlay">
+                <h3>Fürdőszoba</h3>
+                <p>Premium felszereltség</p>
+              </div>
+            </div>
+            <div className="gallery-item h-2">
+              <Image src="https://images.unsplash.com/photo-1538371846014-2e475007f435?w=600&q=80" alt="Kívülről" fill style={{ objectFit: 'cover' }} />
+              <div className="gallery-overlay">
+                <h3>Külső Nézet</h3>
+                <p>Architectura a természetben</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SZOLGÁLTATÁSOK */}
+      <section id="szolgaltatasok">
+        <div className="section-header">
+          <h2 className="section-title">Szolgáltatások</h2>
+          <p className="section-subtitle">Kényelmi pluszok az élményetekhez</p>
+        </div>
+        <div className="amenities-grid">
+          {[
+            { title: 'Reggeli kosár', desc: 'Friss pékáru, helyi termékek – bekészítve az első reggeli meglepetéshez' },
+            { title: 'Étkezési lehetőségek', desc: 'Ajánlásaink a közeli éttermekről és kiszállítási opciókról' },
+            { title: 'E-bike bérlés', desc: 'Fedezd fel a Mátrát elektromos kerékpárral – kérésre helyben elérhető' },
+          ].map((a, i) => (
+            <div key={i} className="amenity-card">
+              <div className="amenity-front">
+                <h3>{a.title}</h3>
+                <p>{a.desc}</p>
               </div>
             </div>
           ))}
