@@ -5,3 +5,9 @@ dist
 out
 *.log
 *.local
+
+# Large video files
+images/hero/*.MP4
+images/hero/*.mp4
+images/hero/*.MOV
+images/hero/*.mov
