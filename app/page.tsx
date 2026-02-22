@@ -178,7 +178,7 @@ export default function Page() {
             <h3><i className="fas fa-hot-tub"></i> Privát Jakuzzi Luxus</h3>
             <p>Merüljetek el kettesben a privát jakuzziban, élvezzétek a privát wellnesst a Mátra fái alatt. A meleg víz és a csend garantálja a teljes ellazulást és romantikus hangulatot.</p>
           </div>
-          <div className="highlight-image">
+          <div className="highlight-image" onClick={() => openLightbox(jakuzziImage)} style={{ cursor: 'pointer' }}>
             <Image 
               src={jakuzziImage} 
               alt="Privát jakuzzi" 
@@ -193,7 +193,7 @@ export default function Page() {
         </div>
 
         <div className="highlight-item highlight-item-right">
-          <div className="highlight-image">
+          <div className="highlight-image" onClick={() => openLightbox(infraszaunaImage)} style={{ cursor: 'pointer' }}>
             <Image 
               src={infraszaunaImage} 
               alt="Infraszauna" 
@@ -218,7 +218,7 @@ export default function Page() {
             <h3><i className="fas fa-bed"></i> Romantikus Erdei Idill</h3>
             <p>Panorámás franciaágyaink és felnőttbarát környezetünk garantálja a zavartalan romantikát. A Kicsim a tökéletes hely a párok romantikus, zavartalan elvonulásához.</p>
           </div>
-          <div className="highlight-image">
+          <div className="highlight-image" onClick={() => openLightbox(erdeiAlmokImage)} style={{ cursor: 'pointer' }}>
             <Image 
               src={erdeiAlmokImage} 
               alt="Romantikus szoba" 
@@ -233,7 +233,7 @@ export default function Page() {
         </div>
 
         <div className="highlight-item highlight-item-right">
-          <div className="highlight-image">
+          <div className="highlight-image" onClick={() => openLightbox(felszereltKonyhaImage)} style={{ cursor: 'pointer' }}>
             <Image 
               src={felszereltKonyhaImage} 
               alt="Felszerelt konyha" 
@@ -258,7 +258,7 @@ export default function Page() {
             <h3><i className="fas fa-hiking"></i> Erdőkalandok</h3>
             <p>A Kicsim vendégháza közvetlenül a Mátra festői erdei és hegyi útvonalai mellett található, így könnyedén fedezhetitek fel a természet szépségeit. Túrázzatok együtt, élvezzétek a kilátást és a friss levegőt, miközben új élményeket szereztek kettesben.</p>
           </div>
-          <div className="highlight-image">
+          <div className="highlight-image" onClick={() => openLightbox(erdeiTurakImage)} style={{ cursor: 'pointer' }}>
             <Image 
               src={erdeiTurakImage} 
               alt="Erdőközeli túrák" 
