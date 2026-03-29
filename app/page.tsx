@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import miertakicsimImage from '@/images/miertakicsim.jpeg';
+import logoImage from '@/images/logo.png';
 import jakuzziImage from '@/images/Szol/jakuzziazellazulashoz.jpg';
 import infraszaunaImage from '@/images/Szol/pihentető infraszauna.jpg';
 import erdeiAlmokImage from '@/images/Szol/erdei álmok.jpg';
@@ -121,29 +122,24 @@ export default function Page() {
         </div>
         <div className="hero-overlay" />
         <div className="hero-content">
-          <h1>KICSIM</h1>
-          <p className="hero-subtitle">Romantikus menedék a Mátra szívében</p>
+          <h1><Image src={logoImage} alt="MyMátra" height={120} style={{ display: 'block', margin: '0 auto', width: 'auto' }} priority /></h1>
+          <p className="hero-subtitle">Csend. Erdő. Kettesben.</p>
           <p className="hero-description">
-            Ahol az erdő csendje találkozik a modern kényelemmel. Egy hely, ahol csak ti ketten és a természet vagytok.
+            A saját kis menédéketek a Mátra szívében.
           </p>
-          <div className="hero-buttons">
+         {/*<div className="hero-buttons">
             <a className="btn" href="/foglalas">Foglalás</a>
-          </div>
+          </div> */} 
         </div>
       </section>
 
       {/* RÓLUNK - Miért a Kicsim? & Hol található? */}
       <section id="rolunk" className="about-bg">
-        <div className="section-header">
-          <div className="section-badge">Miért a Kicsim?</div>
-          <h2 className="section-title">Vendégházunk a Mátra Szívében</h2>
-          <p className="section-subtitle">A festői szépségű Mátrakeresztesen, az erdő szélén – ahol a nyugalom találkozik a luxussal</p>
-        </div>
         <div className="about-content">
           <div className="about-image">
             <Image 
               src={miertakicsimImage} 
-              alt="Kicsim Vendégház" 
+              alt="MyMátra Vendégház" 
               fill 
               priority 
               placeholder="blur"
@@ -153,8 +149,8 @@ export default function Page() {
             />
           </div>
           <div className="about-text">
-            <h3>Vendégházunk a festői szépségű Mátrakeresztesen...</h3>
-            <p>Vendégházunk a festői szépségű Mátrakeresztesen, az erdő szélén bújik meg, ahol az erdei nyugalom az első perctől elvarázsol. Fedezzétek fel az erdő csendjét, és engedjétek, hogy a természet elcsendesítse a rohanó világ zaját és néhány napig csak egymásra figyeljetek – a Kicsim egy felnőttbarát romantikus erdei vendégház, ahol mindez könnyedén megvalósulhat. A jakuzzi és a szauna gondoskodik a teljes feltöltődésről, a teljesen felszerelt konyha és igény esetén a reggeli bekészítés pedig otthonossá teszi a tartózkodást. A környék fantasztikus lehetőséget kínál túrázásra és a Mátra felfedezésére, így a természet és a romantika tökéletes harmóniáját élhetitek át.</p>
+            <h3>MyMátra érzés</h3>
+            <p>A festői Mátrakeresztes szélén, az erdő mellett bújik meg a MyMátra vendégház – egy tündéri, romantikus faház, ahol a csend és a természet az első pillanattól körülölel. Itt a reggeleket madárcsicsergés kíséri, a nap lassabban telik, és végre van idő egymásra. Az erdőben sétálva, a jakuzzi melegében pihenve vagy a infraszauna nyugalmában megáll egy kicsit a világ – és csak a kettesben töltött pillanatok maradnak. A ház mindent megad egy gondtalan pihenéshez: otthonos tér, teljesen felszerelt konyha, igény szerint bekészített reggeli, és a Mátra csodálatos erdei közvetlenül a küszöb előtt. Ha szeretnétek néhány napra kiszakadni a rohanó hétköznapokból, és újra átélni a természet és a nyugalom egyszerű örömét, a MyMátra vendégház szeretettel vár benneteket.</p>
             <div className="about-stats">
               <div className="stat-item"><div className="stat-number">100%</div><div className="stat-label">Privát terület</div></div>
               <div className="stat-item"><div className="stat-number">2 fő</div><div className="stat-label">Maximum</div></div>
@@ -167,16 +163,14 @@ export default function Page() {
       {/* KIEMELT SZOLGÁLTATÁSOK */}
       <section id="kiemelt" className="highlights-section">
         <div className="section-header">
-          <div className="section-badge">Kiemelt Szolgáltatások</div>
-          <h2 className="section-title">Az Élmény Magja</h2>
-          <p className="section-subtitle">Fedezd fel azokat az exclusív szolgáltatásokat, amelyek az ön pihenését tökéletessé teszik</p>
+          <h2 className="section-title">Kiemelt Szolgáltatások</h2>
         </div>
 
         <div className="highlight-item highlight-item-left">
           <div className="highlight-text">
             <div className="highlight-accent"></div>
-            <h3><i className="fas fa-hot-tub"></i> Privát Jakuzzi Luxus</h3>
-            <p>Merüljetek el kettesben a privát jakuzziban, élvezzétek a privát wellnesst a Mátra fái alatt. A meleg víz és a csend garantálja a teljes ellazulást és romantikus hangulatot.</p>
+            <h3><i className="fas fa-hot-tub"></i> Privát jakuzzi az ellazuláshoz</h3>
+            <p>Merüljetek el kettesben a jakuzziban, élvezzétek a privát wellnesst a Mátra fái alatt. A meleg víz és a csend garantálja a teljes ellazulást és a romantikus hangulatot.</p>
           </div>
           <div className="highlight-image" onClick={() => openLightbox(jakuzziImage)} style={{ cursor: 'pointer' }}>
             <Image 
@@ -207,7 +201,7 @@ export default function Page() {
           </div>
           <div className="highlight-text">
             <div className="highlight-accent"></div>
-            <h3><i className="fas fa-fire"></i> Infraszauna – Wellness Kiválóság</h3>
+            <h3><i className="fas fa-fire"></i> Pihentető infraszauna</h3>
             <p>Beltéri infraszaunánk egész évben elérhető, hogy a hűvösebb napokon is meleg és nyugodt környezetben lazíthassatok. Tökéletes módja a test és a lélek feltöltődésének, miközben a párotokkal kettesben élvezitek a csendet.</p>
           </div>
         </div>
@@ -215,8 +209,8 @@ export default function Page() {
         <div className="highlight-item highlight-item-left">
           <div className="highlight-text">
             <div className="highlight-accent"></div>
-            <h3><i className="fas fa-bed"></i> Romantikus Erdei Idill</h3>
-            <p>Panorámás franciaágyaink és felnőttbarát környezetünk garantálja a zavartalan romantikát. A Kicsim a tökéletes hely a párok romantikus, zavartalan elvonulásához.</p>
+            <h3><i className="fas fa-bed"></i> Romantikus erdei álmok</h3>
+            <p>Panorámás franciaágyunk és felnőttbarát környezetünk garantálja a zavartalan romantikát. A MyMátra vendégház tökéletes hely a párok romantikus, zavartalan elvonulásához.</p>
           </div>
           <div className="highlight-image" onClick={() => openLightbox(erdeiAlmokImage)} style={{ cursor: 'pointer' }}>
             <Image 
@@ -247,7 +241,7 @@ export default function Page() {
           </div>
           <div className="highlight-text">
             <div className="highlight-accent"></div>
-            <h3><i className="fas fa-utensils"></i> Gourmet Konyha</h3>
+            <h3><i className="fas fa-utensils"></i> Teljesen felszerelt konyha</h3>
             <p>Főzzetek kényelmesen és élvezzétek az együtt töltött időt a teljesen felszerelt konyhában, amely kávégéppel és mosogatógéppel is rendelkezik.</p>
           </div>
         </div>
@@ -255,8 +249,8 @@ export default function Page() {
         <div className="highlight-item highlight-item-left">
           <div className="highlight-text">
             <div className="highlight-accent"></div>
-            <h3><i className="fas fa-hiking"></i> Erdőkalandok</h3>
-            <p>A Kicsim vendégháza közvetlenül a Mátra festői erdei és hegyi útvonalai mellett található, így könnyedén fedezhetitek fel a természet szépségeit. Túrázzatok együtt, élvezzétek a kilátást és a friss levegőt, miközben új élményeket szereztek kettesben.</p>
+            <h3><i className="fas fa-hiking"></i> Erdei túrák és kirándulások</h3>
+            <p>A MyMátra vendégház közvetlenül a Mátra festői erdei és hegyi útvonalai mellett található, így könnyedén fedezhetitek fel a természet szépségeit. Túrázzatok együtt, élvezzétek a kilátást és a friss levegőt, miközben új élményeket szereztek kettesben.</p>
           </div>
           <div className="highlight-image" onClick={() => openLightbox(erdeiTurakImage)} style={{ cursor: 'pointer' }}>
             <Image 
@@ -276,9 +270,7 @@ export default function Page() {
       {/* FELSZERELTSÉG */}
       <section id="felszereltseg" className="equipment-section">
         <div className="section-header">
-          <div className="section-badge">Kényelmi extrák</div>
           <h2 className="section-title">Felszereltség</h2>
-          <p className="section-subtitle">Minden, amire a gondtalan kikapcsolódáshoz szükségetek lehet</p>
         </div>
         
         <div className="equipment-categories">
@@ -425,9 +417,7 @@ export default function Page() {
       {/* GALÉRIA */}
       <section id="galeria" className="gallery-section">
         <div className="section-header">
-          <div className="section-badge">Galerie</div>
           <h2 className="section-title">Képgaléria</h2>
-          <p className="section-subtitle">Fedezd fel a Kicsim minden szögletét – a jakuzzitól az erdőig</p>
         </div>
         <div className="gallery-container">
           <div className="gallery-grid">
@@ -485,9 +475,7 @@ export default function Page() {
       {/* SZOLGÁLTATÁSOK */}
       <section id="szolgaltatasok">
         <div className="section-header">
-          <div className="section-badge">Extra lehetőségek</div>
           <h2 className="section-title">Szolgáltatások</h2>
-          <p className="section-subtitle">Kényelmi pluszok az élményetekhez</p>
         </div>
         <div className="amenities-grid">
           {[

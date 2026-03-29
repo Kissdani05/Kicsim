@@ -1,9 +1,20 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import logoImage from '@/images/logo.png';
+import logo2Image from '@/images/logo2.png';
 
 export default function NavBar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 0);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   const toggleMenu = useCallback(() => {
     const nav = document.querySelector('.nav-links');
     const toggle = document.querySelector('.menu-toggle');
@@ -21,7 +32,9 @@ export default function NavBar() {
   return (
     <header>
       <nav>
-        <Link href="/" className="logo" onClick={closeMenu}>KICSIM</Link>
+        <Link href="/" className="logo" onClick={closeMenu}>
+          <Image src={scrolled ? logo2Image : logoImage} alt="MyMátra" height={64} style={{ display: 'block', width: 'auto' }} priority />
+        </Link>
         <ul className="nav-links" onClick={closeMenu}>
           <li><Link href="/">Főoldal</Link></li>
           <li><Link href="/#galeria">Galéria</Link></li>

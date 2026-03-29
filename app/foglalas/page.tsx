@@ -24,13 +24,13 @@ export default function FoglalasPage() {
 
           <div className="booking-intro" style={{ maxWidth: '900px', margin: '0 auto 4rem', fontSize: '1.05rem', lineHeight: '1.8', color: '#2C2416' }}>
             <p style={{ marginBottom: '1.5rem', color: '#2C2416' }}>
-              A Kicsim vendégház két fő részére került kialakításra. Korlátlanul használhatjátok a privát <strong>jacuzzit és az infraszaunát</strong>. Csak a Tiétek az egész ház az itt tartózkodásotok alatt. A szállásdíj tartalmazza az idegenforgalmi adót és a végtakarítást.
+              A MyMátra vendégház <strong>két fő részére</strong> került kialakításra. Korlátlanul használhatjátok a privát <strong>jacuzzit és az infraszaunát</strong>. Csak a Tiétek az egész ház az itt tartózkodásotok alatt. A szállásdíj tartalmazza az idegenforgalmi adót és a végtakarítást.
             </p>
             <p style={{ marginBottom: '1.5rem', color: '#2C2416' }}>
               Lehetőségetek van <strong>termelői reggeli bekészítésére és e-bike bérlésére is,</strong> amit foglaláskor ki tudtok választani.
             </p>
-            <p style={{ marginBottom: '1.5rem', fontStyle: 'italic', color: '#2C2416' }}>
-              A Kicsim minimum 2 éjszakára foglalható, de <strong>1 éjszakás</strong> foglalásra is van lehetőség, amint betelik a naptár, és "lyukas" nap alakul ki.
+            <p style={{ marginBottom: '1.5rem', color: '#2C2416' }}>
+              A MyMátra minimum 2 éjszakára foglalható, de <strong>1 éjszakás</strong> foglalásra is van lehetőség, amint betelik a naptár, és "lyukas" nap alakul ki.
             </p>
             <p style={{ marginBottom: '2.5rem', color: '#2C2416' }}>
               A foglalás véglegesítéséhez a szállásdíj teljes összegét szükséges kiegyenlíteni, a fizetésre 48 óra áll rendelkezésre.
@@ -67,7 +67,7 @@ export default function FoglalasPage() {
             <p style={{ marginBottom: '2rem', color: '#2C2416' }}>
               Érkezés <strong>14:00</strong> órától, távozás <strong>10:00</strong> óráig.
             </p>
-            <p style={{ fontSize: '0.95rem', fontWeight: '400', fontStyle: 'italic', color: '#2C2416' }}>
+            <p style={{ fontSize: '0.95rem', fontWeight: '400', color: '#2C2416' }}>
               A foglalást követően a házirendbe és <strong>ÁSZF</strong>-be foglaltakat tudomásul veszem és elfogadom!
             </p>
           </div>
